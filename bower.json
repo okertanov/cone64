@@ -1,0 +1,25 @@
+{
+  "name": "cone64",
+  "version": "0.0.1",
+  "authors": [
+    "okertanov <okertanov@gmail.com>"
+  ],
+  "description": "Cone64",
+  "main": "wwwroot/index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "pine64",
+    "cone64"
+  ],
+  "license": "MIT",
+  "homepage": "https://pine.lexiko.me/",
+  "dependencies": {
+    "jquery": "*",
+    "jquery-ui": "*",
+    "bootstrap": "*",
+    "backbone": "*",
+    "underscore": "*"
+  }
+}

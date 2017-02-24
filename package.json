@@ -1,0 +1,32 @@
+{
+  "name": "cone64",
+  "version": "0.0.1",
+  "description": "Cone64",
+  "main": "server/app.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okertanov/cone64.git"
+  },
+  "keywords": [
+    "pine64",
+    "cone64"
+  ],
+  "author": "Oleg Kertanov",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "*",
+    "cheerio": "*",
+    "express": "*",
+    "morgan": "*",
+    "multer": "*",
+    "request": "*",
+    "uuid": "*",
+    "zmq": "*"
+  },
+  "devDependencies": {
+    "should": "*"
+  }
+}
