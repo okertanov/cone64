@@ -20,7 +20,7 @@ namespace cone::app {
             virtual const application* daemonize() const {
                 auto rc = daemon(0, 0);
                 if (rc != 0) {
-                    throw std::runtime_error(std::string("Failed to daemonize."));
+                    throw std::runtime_error("Failed to daemonize.");
                 }
                 return this;
             }

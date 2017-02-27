@@ -34,7 +34,7 @@ namespace cone::app {
             }
 
             virtual void invoke() const {
-                auto thread = std::make_unique<std::thread>([&](){
+                auto thread = std::make_unique<std::thread>([this] {
                     while (true) {
                         _fn();
                         sleep(_period_ms);

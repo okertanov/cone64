@@ -8,6 +8,7 @@
 
 #include <memory>
 #include <string>
+#include <sstream>
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -22,6 +23,7 @@
 #include <ctime>
 
 #include <unistd.h>
+#include <sys/utsname.h>
 
 #ifndef UNUSED
     #define UNUSED(X) ((void)X)

@@ -11,7 +11,15 @@ int main(int argc, char** argv) {
 
     auto channel = std::make_unique<cone::pubsub::channel>(channel_name);
     auto handler = std::make_shared<cone::app::periodic_handler>([&channel] {
-        std::cerr << "handler: " << &channel << std::endl;
+        auto buf = std::make_unique<utsname>();
+        auto rc = uname(buf.get());
+        if (rc != 0) {
+            throw std::runtime_error("Failed to call uname.");
+        }
+        auto ss = std::make_unique<std::stringstream>();
+        *ss << buf->sysname << " " << buf->nodename << " " << buf->release << " "
+            << buf->version << " " << buf->machine;
+        std::cout << ss->str() << std::endl;
     }, 1000);
     auto app = std::make_unique<cone::app::application>(argc, argv, handler);
     auto result = app->run();
