@@ -5,43 +5,12 @@
 #pragma once
 
 #include "platform.h"
+#include "handler.h"
 
 namespace cone::app {
-    class handler {
-        public:
-            handler(const std::function<void(void)>& fn) :
-                _fn(std::move(fn)) {
-            }
-
-            void invoke() const {
-                auto thread = std::make_unique<std::thread>([&](){
-                    invoke_impl();
-                });
-                thread->join();
-            }
-
-            virtual ~handler() {
-            }
-
-        private:
-            void invoke_impl() const {
-                while (true) {
-                    _fn();
-                    sleep(1000);
-                }
-            }
-
-            void sleep(unsigned long ms) const {
-                std::this_thread::sleep_for(std::chrono::milliseconds(ms));
-            }
-
-        private:
-            const std::function<void(void)> _fn;
-    };
-
     class application {
         public:
-            application(int argc, char** argv, const std::shared_ptr<cone::app::handler>& handler) :
+            application(int argc, char** argv, const std::shared_ptr<cone::app::base_handler>& handler) :
                 _args(), _handler(handler) {
                 for(int i = 0; i < argc; i++) {
                     _args.push_back(std::string(argv[i]));
@@ -66,6 +35,6 @@ namespace cone::app {
 
         private:
             std::vector<std::string> _args;
-            const std::shared_ptr<cone::app::handler> _handler;
+            const std::shared_ptr<cone::app::base_handler> _handler;
     };
 }
