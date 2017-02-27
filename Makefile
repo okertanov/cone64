@@ -4,13 +4,11 @@
 
 all:
 	$(MAKE) -C lib
-	$(MAKE) -C etc
 	$(MAKE) -C server
 	$(MAKE) -C wwwroot
 
 clean:
 	$(MAKE) -C lib clean
-	$(MAKE) -C etc clean
 	$(MAKE) -C server clean
 	$(MAKE) -C wwwroot clean
 
