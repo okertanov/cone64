@@ -1,0 +1,4 @@
+lib/metrics
+lib/myip
+lib/uname
+lib/*.o
