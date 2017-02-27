@@ -9,7 +9,7 @@ CXX_FLAGS:=-Wall -Wextra -std=c++1z \
 	-O3 -msse4 -ffast-math
 LD_FLAGS:=
 
-all: metrics myip uname
+all: myip metrics uname
 
 metrics: metrics.o
 	c++ $(CXX_FLAGS) $(LD_FLAGS) -o $@ $^
