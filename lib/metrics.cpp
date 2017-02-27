@@ -7,13 +7,13 @@
 #include "app.h"
 
 int main(int argc, char** argv) {
-    const std::string channel_name = "cone::uname";
+    const std::string channel_name = "cone::metrics";
 
-    auto channel = std::make_unique<cone::pubsub::channel>();
+    auto channel = std::make_unique<cone::pubsub::channel>(channel_name);
     auto handler = std::make_unique<cone::app::handler>([&channel] {
     });
-    auto app = std::make_unique<cone::app::application>(argc, argv, handler);
-    auto result = app.run();
+    auto app = std::make_unique<cone::app::application>(argc, argv, *handler);
+    auto result = app->run();
 
     return result;
 }

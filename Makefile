@@ -3,13 +3,13 @@
 ##
 
 all:
-	$(MAKE) -C bin
+	$(MAKE) -C lib
 	$(MAKE) -C etc
 	$(MAKE) -C server
 	$(MAKE) -C wwwroot
 
 clean:
-	$(MAKE) -C bin clean
+	$(MAKE) -C lib clean
 	$(MAKE) -C etc clean
 	$(MAKE) -C server clean
 	$(MAKE) -C wwwroot clean
