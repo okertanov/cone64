@@ -49,4 +49,24 @@ namespace cone::app {
         private:
             const unsigned long _period_ms;
     };
+
+    class waitable_handler : public base_handler {
+        public:
+            waitable_handler(const std::function<void(void)>& fn) :
+                base_handler(fn) {
+            }
+
+            virtual void invoke() const {
+                auto thread = std::make_unique<std::thread>([this] {
+                    volatile auto running = true;
+                    while (running) {
+                        _fn();
+                    }
+                });
+                thread->join();
+            }
+
+            virtual ~waitable_handler() {
+            }
+    };
 }
